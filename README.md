@@ -1,5 +1,5 @@
 # Control-and-fly-a-mini-drone-with-computer-keyboard
-In this project, I used a laptop and a 4-in-1 board to fly a mini drone by arrow keys.  
+In this project, I used a laptop and a 4-in-1 board to fly a mini drone by keyboard keys.  
 The advantages of this way are that it is not needed to modify the drone and original transmitter and it can also be copied by other drones quickly.  
 I am really appreciate to goebish, multiprotocol project and pascallanger!  
 
@@ -57,6 +57,28 @@ b. Check the number of protocol is correct.
 c. Check the number of COM port is correct.  
 d. Set all the "globals" as 1500 if it's the first try.  
 e. The LED would flash fast if the 4-in-1 board starts its binding mode.  
-e. In this step, the E016H drone would only start its propellers and get into ready mode for 20 seconds.  
-d. Once the propellers are rotating, this step is over.  
+f. In this step, the E016H drone would only start its propellers and get into ready mode for 20 seconds.  
+g. Once the propellers are rotating, this step is over.  
 #### Step 2. Initial value adjustment and Remote controlling commands
+Initial values represent the initial balance when the drone takse off and they would also effect the balance when the drone is hovering.  
+Remote controlling commands are used to control the one-term distance once the keys are pressed.  
+These two thing should be set up at the same time and need some time to adjust them.  
+If the initial values do not be set up properly, the drone would be out of control.  
+Many factors would effect the initial balance of a drone such as battery power, the balance of fuselage, the weights of different batteries, initial values, etc.  
+Although the initial values can make a big effection to the balance, but same values cannot ensure the drone be always very stable.  
+Therefore, initail values should be modify depends on different situations.  
+
+Remote controlling commands need to be set up before the suitable range of initail values be checked because these commands can help the drone to avoid the crash.  
+Remote controlling commands would look like two loops which have same number of laps.  
+One loop is to increase the values step by step and the other loop is to decrease the values step by step and make sure it return to the initial values.  
+The values mean the number in different channels such as A, E, T and R.  
+When the values return to initail values, the drone can be hovering and wait for next command.  
+
+If 4-in-1 board doesn't send a new singal to the drone more than 70ms, the connection would be disconnected. As the result, the hovering function is needed.
+
+In "1drone_KBcontrol_Ini-value&Ctrl-command.py", the drone can be controlled by keys like the following diagram.  
+![KBcontrol](https://user-images.githubusercontent.com/76200428/131687500-a2abdb4d-6276-43a6-97ec-7be3138969a9.jpg)
+
+Note:  
+a. If 4-in-1 board doesn't send a new singal to the drone more than 70ms, the connection would be disconnected. As the result, the hovering function is needed.  
+b. The amount of increasement or decreasement can not be too less or too many. Too less makes the drone non-moving and too many makes the drone moving too fast and the slow reaction of commands.
