@@ -22,13 +22,13 @@ There are four different files needed to be modified in this step, and these fil
 **1.	Pins.h**
     Please replace USART2_BASE with USART1_BASE in line 357 and line 358
 **2.	Multiprotocol.ino**
-    a.	Add “#define __arm__” in line 27.
-    b.	Add “void __irq_usart1(void);” in line 66.
-    c.	Replace “usart2_begin” with “usart1_begin” in line 2110 and line 2117, replace “USART2_BASE” with “USART1_BASE” in line 2111 and line 2118, and comment out the line 2122.
-    d.	Add the codes from line 2154 to line 2161 in the following picture. 
-    e.	Replace “USART2_BASE” with “USART1_BASE” in line 2212.
-    f.	Replace “__irq_usart2” with “__irq_usart1” in line 2448.
-    g.	Replace “USART2_BASE” with “USART1_BASE” in line 2456, and there are to places needed to be modified in this line.
+   a.	Add “#define __arm__” in line 27.
+   b.	Add “void __irq_usart1(void);” in line 66.
+   c.	Replace “usart2_begin” with “usart1_begin” in line 2110 and line 2117, replace “USART2_BASE” with “USART1_BASE” in line 2111 and line 2118, and comment out the line 2122.
+   d.	Add the codes from line 2154 to line 2161 in the following picture. 
+   e.	Replace “USART2_BASE” with “USART1_BASE” in line 2212.
+   f.	Replace “__irq_usart2” with “__irq_usart1” in line 2448.
+   g.	Replace “USART2_BASE” with “USART1_BASE” in line 2456, and there are to places needed to be modified in this line.
  
 **3.	Multiprotocol.h**
 Please change the protocol numbers of “PROTO_Q303” and “PROTO_E016HV2”, the original protocol number of former is 31 and it is in line 60；the original protocol number of the latter is 80 and it is in line 108.
